@@ -3,23 +3,36 @@
 ---
 
 <!-- REPRODUCTOR - fuera de la section para no verse afectado por la animación global de opacidad -->
-<div id="reproductor-fijo" class="fixed bottom-4 right-4 z-50" style="opacity:0; pointer-events:none;">
+<div
+    id="reproductor-fijo"
+    class="fixed bottom-4 right-4 z-50"
+    style="opacity:0; pointer-events:none;"
+>
     <button
         id="btn-reproducir"
         class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#6B7154] shadow-xl flex items-center justify-center hover:bg-[#5a5e45] transition-colors duration-300"
         title="Reproducir/Pausar música"
     >
-        <svg id="icono-play" class="hidden w-6 h-6 sm:w-8 sm:h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
+        <svg
+            id="icono-play"
+            class="hidden w-6 h-6 sm:w-8 sm:h-8 text-white drop-shadow-lg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path d="M8 5v14l11-7z"></path>
         </svg>
-        <svg id="icono-pause" class="w-6 h-6 sm:w-8 sm:h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        <svg
+            id="icono-pause"
+            class="w-6 h-6 sm:w-8 sm:h-8 text-white drop-shadow-lg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"></path>
         </svg>
     </button>
 </div>
 
 <section class="relative bg-white w-full min-h-screen overflow-hidden">
-
     <!-- Audio (oculto) -->
     <audio id="audio-player" preload="auto" loop>
         <source src="/audio/melodia.mp3" type="audio/mpeg" />
@@ -34,13 +47,19 @@
                 alt="Foto de los novios"
                 class="w-full h-full object-cover"
             />
-            <div id="degradado" class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+            <div
+                id="degradado"
+                class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"
+            >
+            </div>
         </div>
     </div>
 
     <!-- Texto de invitación -->
     <div id="texto-invitacion" class="relative w-full px-6 py-8 text-center">
-        <p class="font-serif text-gray-700 text-base sm:text-lg md:text-xl tracking-wide">
+        <p
+            class="font-serif text-[#656f52] text-base sm:text-lg md:text-xl tracking-wide"
+        >
             TENEMOS EL HONOR<br />
             DE INVITARTE A NUESTRA BODA
         </p>
@@ -55,29 +74,40 @@
                 alt="Aro decorativo"
                 class="w-full h-full object-contain"
             />
-            <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <h2 id="nombre-john" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide">
+            <div
+                class="absolute inset-0 flex flex-col items-center justify-center"
+            >
+                <h2
+                    id="nombre-john"
+                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide"
+                >
                     Alain
                 </h2>
-                <div id="ampersand" class="text-[#C9A961] text-3xl sm:text-4xl md:text-5xl font-charm my-2">
+                <div
+                    id="ampersand"
+                    class="text-[#C9A961] text-3xl sm:text-4xl md:text-5xl font-charm my-2"
+                >
                     &
                 </div>
-                <h2 id="nombre-damarys" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide">
+                <h2
+                    id="nombre-damarys"
+                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide"
+                >
                     Kimberly
                 </h2>
             </div>
         </div>
     </div>
-
 </section>
 
 <script>
     import { gsap } from "gsap";
 
     document.addEventListener("DOMContentLoaded", () => {
-
         // ═══ REPRODUCTOR ═══
-        const audio = document.getElementById("audio-player") as HTMLAudioElement;
+        const audio = document.getElementById(
+            "audio-player",
+        ) as HTMLAudioElement;
         const btnReproducir = document.getElementById("btn-reproducir");
         const iconoPlay = document.getElementById("icono-play");
         const iconoPause = document.getElementById("icono-pause");
@@ -108,7 +138,9 @@
         };
 
         // Mostrar botón e iniciar música solo cuando se cierre la portada
-        document.addEventListener("portadaCerrada", mostrarReproductor, { once: true });
+        document.addEventListener("portadaCerrada", mostrarReproductor, {
+            once: true,
+        });
 
         btnReproducir?.addEventListener("click", (e) => {
             e.stopPropagation();
@@ -132,28 +164,98 @@
         });
 
         // ═══ ANIMACIONES ═══
-        gsap.fromTo("#imagen-principal", { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
-        gsap.fromTo("#degradado", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.5 });
-        gsap.fromTo("#texto-invitacion", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.8 });
-        gsap.fromTo("#aro-decorativo", { opacity: 0, scale: 0.3, rotation: -10 }, { opacity: 1, scale: 1, rotation: 0, duration: 1, ease: "back.out(1.7)", delay: 1.2 });
+        gsap.fromTo(
+            "#imagen-principal",
+            { opacity: 0, y: -50 },
+            { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+        );
+        gsap.fromTo(
+            "#degradado",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.5 },
+        );
+        gsap.fromTo(
+            "#texto-invitacion",
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.8 },
+        );
+        gsap.fromTo(
+            "#aro-decorativo",
+            { opacity: 0, scale: 0.3, rotation: -10 },
+            {
+                opacity: 1,
+                scale: 1,
+                rotation: 0,
+                duration: 1,
+                ease: "back.out(1.7)",
+                delay: 1.2,
+            },
+        );
 
         const textoAlain = "Alain";
         const contenedorAlain = document.getElementById("nombre-john");
         if (contenedorAlain) {
-            contenedorAlain.innerHTML = textoAlain.split("").map(l => `<span class="letra-animada" style="opacity:0;display:inline-block;transform:translateY(20px) scale(0.8);filter:blur(3px)">${l}</span>`).join("");
-            gsap.to("#nombre-john .letra-animada", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out", stagger: { each: 0.05 }, delay: 1.6 });
+            contenedorAlain.innerHTML = textoAlain
+                .split("")
+                .map(
+                    (l) =>
+                        `<span class="letra-animada" style="opacity:0;display:inline-block;transform:translateY(20px) scale(0.8);filter:blur(3px)">${l}</span>`,
+                )
+                .join("");
+            gsap.to("#nombre-john .letra-animada", {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.5,
+                ease: "power2.out",
+                stagger: { each: 0.05 },
+                delay: 1.6,
+            });
         }
 
-        gsap.fromTo("#ampersand", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)", delay: 2 });
+        gsap.fromTo(
+            "#ampersand",
+            { opacity: 0, scale: 0.5 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: "back.out(2)",
+                delay: 2,
+            },
+        );
 
         const textoKimberly = "Kimberly";
         const contenedorKimberly = document.getElementById("nombre-damarys");
         if (contenedorKimberly) {
-            contenedorKimberly.innerHTML = textoKimberly.split("").map(l => `<span class="letra-animada" style="opacity:0;display:inline-block;transform:translateY(20px) scale(0.8);filter:blur(3px)">${l}</span>`).join("");
-            gsap.to("#nombre-damarys .letra-animada", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out", stagger: { each: 0.05 }, delay: 2.2 });
+            contenedorKimberly.innerHTML = textoKimberly
+                .split("")
+                .map(
+                    (l) =>
+                        `<span class="letra-animada" style="opacity:0;display:inline-block;transform:translateY(20px) scale(0.8);filter:blur(3px)">${l}</span>`,
+                )
+                .join("");
+            gsap.to("#nombre-damarys .letra-animada", {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.5,
+                ease: "power2.out",
+                stagger: { each: 0.05 },
+                delay: 2.2,
+            });
         }
 
-        gsap.to("#aro-decorativo", { rotation: 5, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 3 });
+        gsap.to("#aro-decorativo", {
+            rotation: 5,
+            duration: 3,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 3,
+        });
     });
 </script>
 
