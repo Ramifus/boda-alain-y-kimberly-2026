@@ -1,0 +1,154 @@
+---
+// DireccionCivil.astro
+---
+
+<section class="relative bg-white w-full py-4 px-6">
+
+    <div class="max-w-md mx-auto">
+
+        <div
+            id="civil-card"
+            class="border-2 border-[#C9A961] rounded-3xl p-8 sm:p-10 bg-white shadow-lg text-center"
+        >
+
+            <!-- Título -->
+            <div id="civil-titulo" class="mb-6">
+                <h3 class="font-great-vibes text-4xl sm:text-5xl md:text-6xl text-[#C9A961] tracking-wide">
+                    Registro Civil
+                </h3>
+            </div>
+
+            <!-- Icono -->
+            <div id="civil-icono" class="mb-6 flex justify-center">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
+                    <img
+                        src="/imagenes/anillo.png"
+                        alt="Registro Civil"
+                        class="w-full h-full object-contain"
+                        style="filter: brightness(0) saturate(100%) invert(43%) sepia(8%) saturate(1044%) hue-rotate(49deg) brightness(96%) contrast(88%);"
+                    />
+                </div>
+            </div>
+
+            <!-- Nombre del lugar -->
+            <div id="civil-nombre" class="mb-6">
+                <p class="font-serif text-base text-[#C9A961] tracking-wide">
+                    MARICEL ARANCIBIA
+                </p>
+            </div>
+
+            <!-- Dirección -->
+            <div id="civil-direccion" class="mb-6">
+                <p class="text-[#6B6B6B] text-sm sm:text-base font-serif uppercase tracking-wide">
+                    CUARTO ANILLO ENTRE AV. LA SALLE<br/>Y AV. SAN MARTIN, LADO VENTURA MALL
+                </p>
+            </div>
+
+            <!-- Hora -->
+            <div id="civil-hora" class="mb-6">
+                <p class="text-[#C9A961] text-xl font-crimson">
+                    18:30 HORAS
+                </p>
+            </div>
+
+            <!-- Botón -->
+            <div id="civil-boton">
+                <a
+                    href="https://maps.app.goo.gl/ZtN9SrG51mzswZA66"
+                    target="_blank"
+                    class="inline-block bg-[#6B7154] text-white px-8 py-3 rounded-lg text-sm sm:text-base font-serif uppercase tracking-wider hover:bg-[#5a5e45] transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                    VER UBICACIÓN
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        gsap.fromTo(
+            "#civil-card",
+            { opacity: 0, scale: 0.8, y: 50 },
+            {
+                opacity: 1, scale: 1, y: 0,
+                duration: 1,
+                ease: "back.out(1.4)",
+                scrollTrigger: { trigger: "#civil-card", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#civil-icono",
+            { opacity: 0, scale: 0.5, rotation: -10 },
+            {
+                opacity: 1, scale: 1, rotation: 0,
+                duration: 0.8,
+                ease: "back.out(1.7)",
+                delay: 0.3,
+                scrollTrigger: { trigger: "#civil-card", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#civil-titulo",
+            { opacity: 0, y: -20 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                delay: 0.5,
+                scrollTrigger: { trigger: "#civil-card", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#civil-nombre, #civil-direccion",
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: "power2.out",
+                delay: 0.7,
+                scrollTrigger: { trigger: "#civil-card", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#civil-boton",
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                delay: 1.0,
+                scrollTrigger: { trigger: "#civil-card", start: "top 80%", once: true }
+            }
+        );
+    });
+</script>
+
+<style>
+    #civil-card {
+        transition: all 0.3s ease;
+    }
+
+    #civil-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    #civil-boton a:active {
+        transform: scale(0.95);
+    }
+</style>

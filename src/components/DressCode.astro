@@ -1,0 +1,157 @@
+---
+// DressCode.astro
+---
+
+<section class="relative bg-white w-full py-2">
+
+    <div class="max-w-2xl mx-auto">
+
+        <!-- Contenedor principal verde oliva como pase2 -->
+        <div
+            id="dress-container"
+            class="relative bg-[#6B7154] rounded-lg p-10 sm:p-12 md:p-14 text-center shadow-2xl overflow-hidden"
+        >
+
+            <!-- Hoja decorativa fondo derecha -->
+            <div class="absolute top-0 right-0 w-28 sm:w-36 opacity-10 pointer-events-none">
+                <img src="/imagenes/hojas.png" alt="" class="w-full h-auto object-contain scale-x-[-1]" />
+            </div>
+
+            <!-- Hoja decorativa fondo izquierda -->
+            <div class="absolute bottom-0 left-0 w-28 sm:w-36 opacity-10 pointer-events-none">
+                <img src="/imagenes/hojas.png" alt="" class="w-full h-auto object-contain" />
+            </div>
+
+            <!-- Título "Dress Code" -->
+            <div id="dress-titulo" class="mb-6 relative z-10">
+                <h3 class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide">
+                    Dress Code
+                </h3>
+            </div>
+
+            <!-- Línea decorativa -->
+            <div id="dress-linea" class="w-1/2 mx-auto border-t border-[#C9A961]/50 mb-6 relative z-10"></div>
+
+            <!-- Subtítulo FORMAL -->
+            <div id="dress-formal" class="mb-8 relative z-10">
+                <p class="text-white font-crimson text-xl sm:text-2xl tracking-[0.3em] uppercase">
+                    FORMAL
+                </p>
+            </div>
+
+            <!-- Círculos de colores -->
+            <div id="dress-colores" class="flex items-center justify-center gap-6 sm:gap-8 mb-8 relative z-10">
+                <!-- Verde oliva -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-md" style="background-color: #7a8566;"></div>
+                </div>
+                <!-- Beige / crema -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-md" style="background-color: #C9B49A;"></div>
+                </div>
+                <!-- Café / marrón -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-md" style="background-color: #8B5E3C;"></div>
+                </div>
+            </div>
+
+            <!-- Nota: evitar blanco -->
+            <div id="dress-nota" class="relative z-10">
+                <p class="text-white/80 font-crimson text-sm sm:text-base tracking-widest uppercase">
+                    Mujeres: evitar el color blanco
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        gsap.fromTo(
+            "#dress-container",
+            { opacity: 0, scale: 0.9, y: 50 },
+            {
+                opacity: 1, scale: 1, y: 0,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#dress-titulo",
+            { opacity: 0, y: -20 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                delay: 0.3,
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#dress-linea",
+            { scaleX: 0 },
+            {
+                scaleX: 1,
+                duration: 0.6,
+                ease: "power2.out",
+                delay: 0.6,
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#dress-formal",
+            { opacity: 0, scale: 0.8 },
+            {
+                opacity: 1, scale: 1,
+                duration: 0.6,
+                ease: "back.out(1.5)",
+                delay: 0.8,
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#dress-colores > div",
+            { opacity: 0, y: 20, scale: 0.5 },
+            {
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.5,
+                stagger: 0.15,
+                ease: "back.out(1.7)",
+                delay: 1.0,
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+
+        gsap.fromTo(
+            "#dress-nota",
+            { opacity: 0, y: 10 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                delay: 1.4,
+                scrollTrigger: { trigger: "#dress-container", start: "top 80%", once: true }
+            }
+        );
+    });
+</script>
+
+<style>
+    #dress-container {
+        transition: all 0.3s ease;
+    }
+</style>

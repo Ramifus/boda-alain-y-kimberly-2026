@@ -1,0 +1,170 @@
+---
+// ContadorRegresivo.astro
+---
+
+<section class="relative bg-white w-full py-12 px-6">
+
+    <div class="max-w-2xl mx-auto">
+
+        <!-- Título elegante -->
+        <div id="contador-titulo" class="text-center mb-8">
+            <p class="font-crimson text-[#C9A961] text-lg sm:text-xl tracking-[0.3em] uppercase">
+                Faltan
+            </p>
+        </div>
+
+        <!-- Contenedor del contador -->
+        <div
+            id="contador-container"
+            class="border border-[#C9A961] rounded-2xl px-6 py-10 sm:px-10 bg-white shadow-[0_8px_40px_rgba(201,169,97,0.12)]"
+        >
+
+            <!-- Grid del contador -->
+            <div class="grid grid-cols-4 gap-2 sm:gap-6">
+
+                <!-- DÍAS -->
+                <div id="dias-box" class="flex flex-col items-center gap-2">
+                    <div class="font-crimson text-[#5a5a5a] text-5xl sm:text-6xl md:text-7xl leading-none" id="dias">
+                        00
+                    </div>
+                    <span class="font-crimson text-[#C9A961] text-xs sm:text-sm tracking-[0.25em] uppercase">
+                        Días
+                    </span>
+                </div>
+
+                <!-- HORAS -->
+                <div id="horas-box" class="flex flex-col items-center gap-2">
+                    <div class="font-crimson text-[#5a5a5a] text-5xl sm:text-6xl md:text-7xl leading-none" id="horas">
+                        00
+                    </div>
+                    <span class="font-crimson text-[#C9A961] text-xs sm:text-sm tracking-[0.25em] uppercase">
+                        Horas
+                    </span>
+                </div>
+
+                <!-- MINUTOS -->
+                <div id="minutos-box" class="flex flex-col items-center gap-2">
+                    <div class="font-crimson text-[#5a5a5a] text-5xl sm:text-6xl md:text-7xl leading-none" id="minutos">
+                        00
+                    </div>
+                    <span class="font-crimson text-[#C9A961] text-xs sm:text-sm tracking-[0.25em] uppercase">
+                        Min.
+                    </span>
+                </div>
+
+                <!-- SEGUNDOS -->
+                <div id="segundos-box" class="flex flex-col items-center gap-2">
+                    <div class="font-crimson text-[#5a5a5a] text-5xl sm:text-6xl md:text-7xl leading-none" id="segundos">
+                        00
+                    </div>
+                    <span class="font-crimson text-[#C9A961] text-xs sm:text-sm tracking-[0.25em] uppercase">
+                        Seg.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const fechaObjetivo = new Date("2026-05-23T17:00:00").getTime();
+
+        const diasEl    = document.getElementById("dias");
+        const horasEl   = document.getElementById("horas");
+        const minutosEl = document.getElementById("minutos");
+        const segundosEl = document.getElementById("segundos");
+
+        function actualizarContador() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            if (diferencia <= 0) {
+                diasEl.textContent    = "00";
+                horasEl.textContent   = "00";
+                minutosEl.textContent = "00";
+                segundosEl.textContent = "00";
+                return;
+            }
+
+            const dias    = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas   = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            diasEl.textContent    = dias.toString().padStart(2, "0");
+            horasEl.textContent   = horas.toString().padStart(2, "0");
+            minutosEl.textContent = minutos.toString().padStart(2, "0");
+            segundosEl.textContent = segundos.toString().padStart(2, "0");
+
+        }
+
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+
+        // ═══ TÍTULO ═══
+        gsap.fromTo(
+            "#contador-titulo",
+            { opacity: 0, y: -20 },
+            {
+                opacity: 1, y: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: "#contador-titulo", start: "top 85%", once: true }
+            }
+        );
+
+        // ═══ CONTENEDOR ═══
+        gsap.fromTo(
+            "#contador-container",
+            { opacity: 0, y: 40 },
+            {
+                opacity: 1, y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: { trigger: "#contador-container", start: "top 85%", once: true }
+            }
+        );
+
+        // ═══ CAJAS - revelado uno a uno ═══
+        gsap.fromTo(
+            "#dias-box, #horas-box, #minutos-box, #segundos-box",
+            { opacity: 0, y: 30, scale: 0.9 },
+            {
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.8,
+                stagger: 0.18,
+                ease: "power3.out",
+                scrollTrigger: { trigger: "#contador-container", start: "top 85%", once: true },
+                delay: 0.3
+            }
+        );
+    });
+</script>
+
+<style>
+    #dias-box, #horas-box, #minutos-box, #segundos-box {
+        transition: transform 0.3s ease;
+    }
+
+    #segundos {
+        transition: opacity 0.4s ease;
+    }
+
+    #dias-box:hover,
+    #horas-box:hover,
+    #minutos-box:hover,
+    #segundos-box:hover {
+        transform: translateY(-4px);
+    }
+</style>
