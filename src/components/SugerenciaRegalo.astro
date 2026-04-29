@@ -3,85 +3,42 @@
 ---
 
 <section class="relative bg-[#6B7154] w-full py-16 px-6">
-    
     <div class="max-w-2xl mx-auto">
-        
         <!-- Título "Sugerencia de Regalo" -->
         <div id="titulo-regalo" class="text-center mb-8">
-            <h3 class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wides leading-16">
+            <h3
+                class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wides leading-16"
+            >
                 Sugerencia de Regalo
             </h3>
         </div>
 
         <!-- Texto explicativo -->
-        <!-- <div id="texto-explicativo" class="text-center mb-10">
-            <p class="text-white text-xs sm:text-sm md:text-base font-serif leading-relaxed">
-                SI DESEAS HACERNOS UN OBSEQUIO, AGRADECERÍAMOS<br />
-                DE CORAZÓN UNA CONTRIBUCIÓN PARA NUESTRA<br />
-                LUNA DE MIEL Y COMENZAR ESTA NUEVA ETAPA.
-            </p>
-        </div> -->
-
         <div id="texto-explicativo" class="text-center mb-10">
-    <p class="text-white text-xs sm:text-sm md:text-base font-serif leading-relaxed">
-        SI DESEAS HACERNOS UN OBSEQUIO, AGRADECEMOS<br />
-        DE CORAZÓN UNA CONTRIBUCIÓN PARA NUESTRO<br />
-        HOGAR
-    </p>
-</div>
+            <p class="text-white text-sm sm:text-base md:text-lg font-serif leading-relaxed">
+                El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo,
+                puedes hacerlo mediante el código QR.
+            </p>
+        </div>
 
+        <!-- Imagen QR -->
+        <div id="tarjeta-qr" class="flex flex-col items-center text-center">
+            <div class="w-64 h-64 sm:w-80 sm:h-80 mb-6 bg-white rounded-lg p-2">
+                <img
+                    src="/imagenes/qr.png"
+                    alt="Código QR"
+                    class="w-full h-full object-contain"
+                />
+            </div>
 
-        <!-- Tarjeta de Sobre (Efectivo) -->
-        <div id="tarjeta-sobre" class="bg-transparent border-2 border-white rounded-3xl p-8 mb-6">
-            <div class="flex flex-col items-center text-center">
-                <!-- Icono de sobre -->
-                <div class="w-20 h-20 sm:w-24 sm:h-24 mb-4">
-                    <img
-                        src="/imagenes/sobre.png"
-                        alt="Efectivo en sobre"
-                        class="w-full h-full object-contain"
-                        style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);"
-                    />
-                </div>
-                <!-- Texto -->
-                <p class="text-white text-sm sm:text-base font-serif uppercase tracking-wider">
-                    EFECTIVO EN SOBRE<br />
-                    (HABRÁ UN BUZÓN)
-                </p>
+            <!-- Detalles de la cuenta -->
+            <div class="text-white font-serif text-sm sm:text-base space-y-1">
+                <p><span class="text-[#C9A961]">Nombre:</span> Kimberly Leon Rodriguez</p>
+                <p><span class="text-[#C9A961]">Nro. cuenta:</span> 1008568932</p>
+                <p><span class="text-[#C9A961]">Concepto:</span> Boda Alain y Kim</p>
             </div>
         </div>
-
-        <!-- Tarjeta de QR (Cuenta Bancaria) -->
- <div id="tarjeta-qr" class="bg-transparent border-2 border-white rounded-3xl p-8">
-    <div class="flex flex-col items-center text-center">
-        <!-- Nombre del Banco -->
-        <h3 class="text-white text-lg sm:text-xl font-serif uppercase tracking-wider mb-4">
-            Banco Ganadero S.A.
-        </h3>
-        
-        <!-- Icono de QR -->
-        <div class="w-40 h-40 sm:w-40 sm:h-40 mb-4 bg-white rounded-lg">
-            <img
-                src="/imagenes/qr2.png"
-                alt="Código QR"
-                class="w-full h-full object-contain"
-            />
-        </div>
-        
-        <!-- Número de cuenta -->
-        <!-- <p class="text-white text-sm sm:text-base font-serif uppercase tracking-wider mb-2">
-            000004080988888
-        </p> -->
-        
-        <!-- Titular de la cuenta -->
-        <p class="text-white text-xl sm:text-sm font-serif">
-            Perez Mendoza John Vicente
-        </p>
     </div>
-</div>
-
-    </div>
-
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -108,9 +65,9 @@
                 scrollTrigger: {
                     trigger: "#titulo-regalo",
                     start: "top 80%",
-                    once: true
-                }
-            }
+                    once: true,
+                },
+            },
         );
 
         // ═══ TEXTO EXPLICATIVO ═══
@@ -125,29 +82,10 @@
                 scrollTrigger: {
                     trigger: "#texto-explicativo",
                     start: "top 80%",
-                    once: true
+                    once: true,
                 },
-                delay: 0.3
-            }
-        );
-
-        // ═══ TARJETA DE SOBRE ═══
-        gsap.fromTo(
-            "#tarjeta-sobre",
-            { opacity: 0, x: -50, scale: 0.9 },
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.8,
-                ease: "back.out(1.4)",
-                scrollTrigger: {
-                    trigger: "#tarjeta-sobre",
-                    start: "top 80%",
-                    once: true
-                },
-                delay: 0.5
-            }
+                delay: 0.3,
+            },
         );
 
         // ═══ TARJETA DE QR ═══
@@ -163,10 +101,10 @@
                 scrollTrigger: {
                     trigger: "#tarjeta-qr",
                     start: "top 80%",
-                    once: true
+                    once: true,
                 },
-                delay: 0.7
-            }
+                delay: 0.7,
+            },
         );
 
         console.log("✨ Animaciones de sugerencia de regalo completadas!");
@@ -174,16 +112,9 @@
 </script>
 
 <style>
-    /* Transiciones suaves en las tarjetas */
-    #tarjeta-sobre,
+    /* Transiciones suaves en la tarjeta */
     #tarjeta-qr {
         transition: all 0.3s ease;
-    }
-
-    #tarjeta-sobre:hover,
-    #tarjeta-qr:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     /* Efecto hover en el título */

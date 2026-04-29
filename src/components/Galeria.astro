@@ -3,40 +3,63 @@
 ---
 
 <section class="w-full py-6 px-3">
-
     <!-- TÍTULO -->
     <div class="text-center mb-10 max-w-lg mx-auto">
         <div class="flex items-center justify-center gap-6 mb-6">
-            <div class="w-16 h-px bg-gradient-to-r from-transparent to-[#C9A961]/60"></div>
+            <div
+                class="w-16 h-px bg-gradient-to-r from-transparent to-[#C9A961]/60"
+            >
+            </div>
             <div class="relative">
                 <div class="w-2 h-2 bg-[#C9A961] rounded-full"></div>
-                <div class="absolute inset-0 w-2 h-2 bg-[#C9A961] rounded-full animate-ping"></div>
+                <div
+                    class="absolute inset-0 w-2 h-2 bg-[#C9A961] rounded-full animate-ping"
+                >
+                </div>
             </div>
-            <div class="w-16 h-px bg-gradient-to-l from-transparent to-[#C9A961]/60"></div>
+            <div
+                class="w-16 h-px bg-gradient-to-l from-transparent to-[#C9A961]/60"
+            >
+            </div>
         </div>
 
-        <h2 class="font-serif text-xl md:text-3xl text-[#C9A961] font-bold mb-4 tracking-wide relative inline-block">
+        <h2
+            class="font-serif text-xl md:text-3xl text-[#C9A961] font-bold mb-4 tracking-wide relative inline-block"
+        >
             Nuestra Historia
-            <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C9A961]/30 to-transparent"></div>
+            <div
+                class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C9A961]/30 to-transparent"
+            >
+            </div>
         </h2>
 
-        <p class="font-serif text-sm text-[#656f52] mt-6 leading-relaxed tracking-wide">
-            CADA MOMENTO CAPTURADO ES UN TESORO ETERNO
+        <p
+            class="font-serif text-sm text-[#656f52] mt-6 leading-relaxed tracking-wide"
+        >
+            DONDE CADA MIRADA GUARDA UNA HISTORIA ETERNA
         </p>
 
         <div class="flex items-center justify-center gap-6 mt-6">
-            <div class="w-16 h-px bg-gradient-to-r from-transparent to-[#C9A961]/60"></div>
+            <div
+                class="w-16 h-px bg-gradient-to-r from-transparent to-[#C9A961]/60"
+            >
+            </div>
             <div class="relative">
                 <div class="w-2.5 h-2.5 bg-[#C9A961] rounded-full"></div>
-                <div class="absolute inset-0 w-2.5 h-2.5 bg-[#C9A961] rounded-full animate-ping"></div>
+                <div
+                    class="absolute inset-0 w-2.5 h-2.5 bg-[#C9A961] rounded-full animate-ping"
+                >
+                </div>
             </div>
-            <div class="w-16 h-px bg-gradient-to-l from-transparent to-[#C9A961]/60"></div>
+            <div
+                class="w-16 h-px bg-gradient-to-l from-transparent to-[#C9A961]/60"
+            >
+            </div>
         </div>
     </div>
 
     <!-- GRID 2 COLUMNAS -->
     <div class="grid grid-cols-2 gap-3 max-w-lg mx-auto">
-
         <!-- FOTO 1 -->
         <div class="foto-card cursor-pointer" data-index="0">
             <div class="overflow-hidden rounded-2xl aspect-[3/4]">
@@ -91,59 +114,107 @@
                 />
             </div>
         </div>
-
     </div>
 
     <!-- MODAL CON CARRUSEL -->
-    <div id="modal-galeria" class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden items-center justify-center">
-
+    <div
+        id="modal-galeria"
+        class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden items-center justify-center"
+    >
         <!-- Cerrar -->
-        <button id="cerrar-modal" class="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 hover:rotate-90 z-50">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        <button
+            id="cerrar-modal"
+            class="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 hover:rotate-90 z-50"
+        >
+            <svg
+                class="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
 
-        <div class="relative w-full h-full flex items-center justify-center px-12 md:px-20">
-
+        <div
+            class="relative w-full h-full flex items-center justify-center px-12 md:px-20"
+        >
             <!-- Anterior -->
-            <button id="btn-anterior" class="absolute left-3 md:left-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 z-40">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            <button
+                id="btn-anterior"
+                class="absolute left-3 md:left-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 z-40"
+            >
+                <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
 
             <!-- Track -->
             <div class="relative w-full max-w-2xl overflow-hidden">
-                <div id="carrusel-track" class="flex transition-transform duration-500 ease-out"></div>
+                <div
+                    id="carrusel-track"
+                    class="flex transition-transform duration-500 ease-out"
+                >
+                </div>
 
                 <!-- Contador -->
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30">
-                    <div class="bg-black/50 backdrop-blur-sm px-5 py-2 rounded-full border border-white/10">
-                        <span id="numero-actual" class="text-white font-crimson text-lg">1</span>
-                        <span class="text-white/40 font-crimson text-lg mx-1">/</span>
-                        <span id="numero-total" class="text-white/40 font-crimson text-lg">5</span>
+                    <div
+                        class="bg-black/50 backdrop-blur-sm px-5 py-2 rounded-full border border-white/10"
+                    >
+                        <span
+                            id="numero-actual"
+                            class="text-white font-crimson text-lg">1</span
+                        >
+                        <span class="text-white/40 font-crimson text-lg mx-1"
+                            >/</span
+                        >
+                        <span
+                            id="numero-total"
+                            class="text-white/40 font-crimson text-lg">5</span
+                        >
                     </div>
                 </div>
             </div>
 
             <!-- Siguiente -->
-            <button id="btn-siguiente" class="absolute right-3 md:right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 z-40">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            <button
+                id="btn-siguiente"
+                class="absolute right-3 md:right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/20 z-40"
+            >
+                <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"></path>
                 </svg>
             </button>
-
         </div>
-
     </div>
-
 </section>
 
 <script>
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
         document.addEventListener("DOMContentLoaded", () => {
-
             const fotos = [
                 { src: "/imagenes/foto1.png" },
                 { src: "/imagenes/foto2.png" },
@@ -153,19 +224,20 @@
             ];
 
             let indiceActual = 0;
-            const modal        = document.getElementById("modal-galeria");
-            const track        = document.getElementById("carrusel-track");
-            const numActual    = document.getElementById("numero-actual");
-            const numTotal     = document.getElementById("numero-total");
-            const btnAnt       = document.getElementById("btn-anterior");
-            const btnSig       = document.getElementById("btn-siguiente");
-            const btnCerrar    = document.getElementById("cerrar-modal");
+            const modal = document.getElementById("modal-galeria");
+            const track = document.getElementById("carrusel-track");
+            const numActual = document.getElementById("numero-actual");
+            const numTotal = document.getElementById("numero-total");
+            const btnAnt = document.getElementById("btn-anterior");
+            const btnSig = document.getElementById("btn-siguiente");
+            const btnCerrar = document.getElementById("cerrar-modal");
 
             // Generar slides
             if (track) {
                 fotos.forEach((foto) => {
                     const slide = document.createElement("div");
-                    slide.className = "min-w-full flex items-center justify-center px-2";
+                    slide.className =
+                        "min-w-full flex items-center justify-center px-2";
                     slide.innerHTML = `
                         <img src="${foto.src}" alt="" class="max-h-[85vh] w-auto max-w-full object-contain rounded-2xl" />
                     `;
@@ -177,8 +249,10 @@
 
             const ir = (n: number) => {
                 indiceActual = (n + fotos.length) % fotos.length;
-                if (track) track.style.transform = `translateX(${-indiceActual * 100}%)`;
-                if (numActual) numActual.textContent = (indiceActual + 1).toString();
+                if (track)
+                    track.style.transform = `translateX(${-indiceActual * 100}%)`;
+                if (numActual)
+                    numActual.textContent = (indiceActual + 1).toString();
             };
 
             const abrir = (i: number) => {
@@ -194,14 +268,27 @@
                 document.body.style.overflow = "";
             };
 
-            document.querySelectorAll(".foto-card").forEach(card => {
-                card.addEventListener("click", () => abrir(parseInt(card.getAttribute("data-index") || "0")));
+            document.querySelectorAll(".foto-card").forEach((card) => {
+                card.addEventListener("click", () =>
+                    abrir(parseInt(card.getAttribute("data-index") || "0")),
+                );
             });
 
-            btnAnt?.addEventListener("click", (e) => { e.stopPropagation(); ir(indiceActual - 1); });
-            btnSig?.addEventListener("click", (e) => { e.stopPropagation(); ir(indiceActual + 1); });
-            btnCerrar?.addEventListener("click", (e) => { e.stopPropagation(); cerrar(); });
-            modal?.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
+            btnAnt?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                ir(indiceActual - 1);
+            });
+            btnSig?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                ir(indiceActual + 1);
+            });
+            btnCerrar?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                cerrar();
+            });
+            modal?.addEventListener("click", (e) => {
+                if (e.target === modal) cerrar();
+            });
 
             document.addEventListener("keydown", (e) => {
                 if (modal && !modal.classList.contains("hidden")) {
@@ -214,15 +301,24 @@
             // Swipe táctil
             let startX = 0;
             let startY = 0;
-            modal?.addEventListener("touchstart", (e) => {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-            }, { passive: true });
-            modal?.addEventListener("touchend", (e) => {
-                const dx = startX - e.changedTouches[0].clientX;
-                const dy = Math.abs(startY - e.changedTouches[0].clientY);
-                if (Math.abs(dx) > 50 && Math.abs(dx) > dy) ir(dx > 0 ? indiceActual + 1 : indiceActual - 1);
-            }, { passive: true });
+            modal?.addEventListener(
+                "touchstart",
+                (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                },
+                { passive: true },
+            );
+            modal?.addEventListener(
+                "touchend",
+                (e) => {
+                    const dx = startX - e.changedTouches[0].clientX;
+                    const dy = Math.abs(startY - e.changedTouches[0].clientY);
+                    if (Math.abs(dx) > 50 && Math.abs(dx) > dy)
+                        ir(dx > 0 ? indiceActual + 1 : indiceActual - 1);
+                },
+                { passive: true },
+            );
         });
     }
 </script>
@@ -240,7 +336,8 @@
         will-change: transform;
     }
 
-    .foto-card, button {
+    .foto-card,
+    button {
         user-select: none;
         -webkit-user-select: none;
     }

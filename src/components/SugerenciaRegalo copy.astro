@@ -3,12 +3,12 @@
 ---
 
 <section class="relative bg-[#6B7154] w-full py-16 px-6">
-    
     <div class="max-w-2xl mx-auto">
-        
         <!-- Título "Sugerencia de Regalo" -->
         <div id="titulo-regalo" class="text-center mb-8">
-            <h3 class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wides leading-16">
+            <h3
+                class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wides leading-16"
+            >
                 Sugerencia de Regalo
             </h3>
         </div>
@@ -23,16 +23,20 @@
         </div> -->
 
         <div id="texto-explicativo" class="text-center mb-10">
-    <p class="text-white text-xs sm:text-sm md:text-base font-serif leading-relaxed">
-        SI DESEAS HACERNOS UN OBSEQUIO, AGRADECEMOS<br />
-        DE CORAZÓN UNA CONTRIBUCIÓN PARA NUESTRO<br />
-        HOGAR
-    </p>
-</div>
-
+            <p
+                class="text-white text-xs sm:text-sm md:text-base font-serif leading-relaxed"
+            >
+                SI DESEAS HACERNOS UN OBSEQUIO, AGRADECEMOS<br />
+                DE CORAZÓN UNA CONTRIBUCIÓN PARA NUESTRO<br />
+                HOGAR
+            </p>
+        </div>
 
         <!-- Tarjeta de Sobre (Efectivo) -->
-        <div id="tarjeta-sobre" class="bg-transparent border-2 border-white rounded-3xl p-8 mb-6">
+        <div
+            id="tarjeta-sobre"
+            class="bg-transparent border-2 border-white rounded-3xl p-8 mb-6"
+        >
             <div class="flex flex-col items-center text-center">
                 <!-- Icono de sobre -->
                 <div class="w-20 h-20 sm:w-24 sm:h-24 mb-4">
@@ -44,7 +48,9 @@
                     />
                 </div>
                 <!-- Texto -->
-                <p class="text-white text-sm sm:text-base font-serif uppercase tracking-wider">
+                <p
+                    class="text-white text-sm sm:text-base font-serif uppercase tracking-wider"
+                >
                     EFECTIVO EN SOBRE<br />
                     (HABRÁ UN BUZÓN)
                 </p>
@@ -52,26 +58,39 @@
         </div>
 
         <!-- Tarjeta de QR (Cuenta Bancaria) -->
-        <div id="tarjeta-qr" class="bg-transparent border-2 border-white rounded-3xl p-8">
+        <div
+            id="tarjeta-qr"
+            class="bg-transparent border-2 border-white rounded-3xl p-8"
+        >
             <div class="flex flex-col items-center text-center">
-                <!-- Icono de QR (temporal con iglesia.png) -->
-                <div class="w-32 h-32 sm:w-40 sm:h-40 mb-4 bg-white rounded-lg p-4">
+                <!-- Nombre del Banco -->
+                <h3
+                    class="text-white text-lg sm:text-xl font-serif uppercase tracking-wider mb-4"
+                >
+                    Banco Ganadero S.A.
+                </h3>
+
+                <!-- Icono de QR -->
+                <div class="w-40 h-40 sm:w-40 sm:h-40 mb-4 bg-white rounded-lg">
                     <img
                         src="/imagenes/qr.png"
                         alt="Código QR"
                         class="w-full h-full object-contain"
                     />
                 </div>
-                <!-- Texto -->
-                <p class="text-white text-xs sm:text-sm font-serif uppercase tracking-wider">
-                    CUENTA BANCARIA BCP<br />
-                    000004080988888
+
+                <!-- Número de cuenta -->
+                <!-- <p class="text-white text-sm sm:text-base font-serif uppercase tracking-wider mb-2">
+            000004080988888
+        </p> -->
+
+                <!-- Titular de la cuenta -->
+                <p class="text-white text-xl sm:text-sm font-serif">
+                    Perez Mendoza John Vicente
                 </p>
             </div>
         </div>
-
     </div>
-
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -98,9 +117,9 @@
                 scrollTrigger: {
                     trigger: "#titulo-regalo",
                     start: "top 80%",
-                    once: true
-                }
-            }
+                    once: true,
+                },
+            },
         );
 
         // ═══ TEXTO EXPLICATIVO ═══
@@ -115,10 +134,10 @@
                 scrollTrigger: {
                     trigger: "#texto-explicativo",
                     start: "top 80%",
-                    once: true
+                    once: true,
                 },
-                delay: 0.3
-            }
+                delay: 0.3,
+            },
         );
 
         // ═══ TARJETA DE SOBRE ═══
@@ -134,10 +153,10 @@
                 scrollTrigger: {
                     trigger: "#tarjeta-sobre",
                     start: "top 80%",
-                    once: true
+                    once: true,
                 },
-                delay: 0.5
-            }
+                delay: 0.5,
+            },
         );
 
         // ═══ TARJETA DE QR ═══
@@ -153,10 +172,10 @@
                 scrollTrigger: {
                     trigger: "#tarjeta-qr",
                     start: "top 80%",
-                    once: true
+                    once: true,
                 },
-                delay: 0.7
-            }
+                delay: 0.7,
+            },
         );
 
         console.log("✨ Animaciones de sugerencia de regalo completadas!");

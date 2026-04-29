@@ -40,12 +40,12 @@
 
     <!-- Imagen Principal -->
     <div class="relative w-full">
-        <div class="relative w-full h-[500px] sm:h-[600px] md:h-[700px]">
+        <div class="relative w-full">
             <img
                 id="imagen-principal"
                 src="/imagenes/portada.png"
                 alt="Foto de los novios"
-                class="w-full h-full object-cover"
+                class="w-full h-auto"
             />
             <div
                 id="degradado"
@@ -67,10 +67,10 @@
 
     <!-- Contenedor del aro con nombres -->
     <div class="relative w-full flex justify-center pb-12">
-        <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
+        <div class="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[32rem] md:h-[32rem]">
             <img
-                id="aro-decorativo"
-                src="/imagenes/aro.webp"
+                id="aro-decorativso"
+                src="/imagenes/FloresCentro.webp"
                 alt="Aro decorativo"
                 class="w-full h-full object-contain"
             />
@@ -79,19 +79,19 @@
             >
                 <h2
                     id="nombre-john"
-                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide"
+                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#3B5323] tracking-wide"
                 >
                     Alain
                 </h2>
                 <div
                     id="ampersand"
-                    class="text-[#C9A961] text-3xl sm:text-4xl md:text-5xl font-charm my-2"
+                    class="text-[#3B5323] text-3xl sm:text-4xl md:text-5xl font-charm my-2"
                 >
                     &
                 </div>
                 <h2
                     id="nombre-damarys"
-                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide"
+                    class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#3B5323] tracking-wide"
                 >
                     Kimberly
                 </h2>
@@ -181,15 +181,8 @@
         );
         gsap.fromTo(
             "#aro-decorativo",
-            { opacity: 0, scale: 0.3, rotation: -10 },
-            {
-                opacity: 1,
-                scale: 1,
-                rotation: 0,
-                duration: 1,
-                ease: "back.out(1.7)",
-                delay: 1.2,
-            },
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8, ease: "power2.out", delay: 1.2 },
         );
 
         const textoAlain = "Alain";
@@ -247,15 +240,6 @@
                 delay: 2.2,
             });
         }
-
-        gsap.to("#aro-decorativo", {
-            rotation: 5,
-            duration: 3,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: 3,
-        });
     });
 </script>
 
