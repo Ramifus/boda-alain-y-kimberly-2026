@@ -6,24 +6,24 @@
     
     <!-- Contenedor del aro con nombres -->
     <div class="relative w-full flex justify-center">
-        <div class="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[32rem] md:h-[32rem]">
-            <!-- Imagen decorativa -->
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
+            <!-- Imagen del aro -->
             <img
                 id="aro-decorativo"
-                src="/imagenes/FloresCentro.webp"
-                alt="Flores decorativas"
+                src="/imagenes/aro.webp"
+                alt="Aro decorativo"
                 class="w-full h-full object-contain"
             />
-
+            
             <!-- Nombres de los novios centrados -->
             <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <h2 id="nombre-john" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#3B5323] tracking-wide">
+                <h2 id="nombre-john" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide">
                     Alain
                 </h2>
-                <div id="ampersand" class="text-[#3B5323] text-3xl sm:text-4xl md:text-5xl font-charm my-2">
+                <div id="ampersand" class="text-[#C9A961] text-3xl sm:text-4xl md:text-5xl font-charm my-2">
                     &
                 </div>
-                <h2 id="nombre-damarys" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#3B5323] tracking-wide">
+                <h2 id="nombre-damarys" class="font-great-vibes text-5xl sm:text-6xl md:text-7xl text-[#C9A961] tracking-wide">
                     Kimberly
                 </h2>
             </div>
@@ -44,14 +44,16 @@
     document.addEventListener("DOMContentLoaded", () => {
         console.log("💍 Iniciando animaciones de nombres en aro final...");
 
-        // ═══ FLOR DECORATIVA - Fade in ═══
+        // ═══ ARO DECORATIVO - Scale desde el centro ═══
         gsap.fromTo(
             "#aro-decorativo",
-            { opacity: 0 },
+            { opacity: 0, scale: 0.3, rotation: -10 },
             {
                 opacity: 1,
-                duration: 0.8,
-                ease: "power2.out",
+                scale: 1,
+                rotation: 0,
+                duration: 1,
+                ease: "back.out(1.7)",
                 scrollTrigger: {
                     trigger: "#aro-decorativo",
                     start: "top 80%",
@@ -59,6 +61,16 @@
                 }
             }
         );
+
+        // ═══ ROTACIÓN SUAVE DEL ARO (loop infinito) ═══
+        gsap.to("#aro-decorativo", {
+            rotation: 5,
+            duration: 3,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5
+        });
 
         // ═══ NOMBRE JOHN - Letra por letra ═══
         const textoJohn = "Alain";
